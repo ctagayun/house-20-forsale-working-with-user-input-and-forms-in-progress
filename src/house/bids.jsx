@@ -5,10 +5,14 @@ import useBids from "/hooks/useBids";
 import LoadingIndicator from "./loadingIndicator";
 
 const Bids = ({ house }) => {
-  const { bids, loadingState, addBid } = useBids(house.id);
+
+  const myHouseInBidsJSX = JSON.stringify(house);
+  console.log("myHouseInBidsJSX = " + myHouseInBidsJSX);
+
+  const { bids, loadingState, addBid } = useBids(house.objectID);
 
   const emptyBid = {
-    houseId: house.id,
+    houseId: house.objectID,
     bidder: "",
     amount: 0,
   };

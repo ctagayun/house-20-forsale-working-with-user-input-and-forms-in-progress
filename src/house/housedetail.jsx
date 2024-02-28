@@ -10,11 +10,11 @@ import { navigationContext } from "/src/app";
 import navValues from "../helpers/navValues";
 import Bids from "./bids";
 
-const HouseDetail = ({ house, onClick }) => {
+const HouseDetail = () => {
   console.log("House Detail fired")
 
-  const detailHouse = JSON.stringify(house);
-   console.log("Detail House prop = " + detailHouse);
+   //const detailHouse = JSON.stringify(house);
+   //console.log("Detail House prop = " + detailHouse);
    
   //Access the navigation context
   //First destructure param and RENAME it to housedetail 
@@ -53,7 +53,8 @@ const HouseDetail = ({ house, onClick }) => {
         <div className="row">
           <div className="col-12 mt-3">{housedetail.description}</div>
         </div>
-        <Bids house={house} />
+       
+         <Bids house={housedetail} />
       </div>
 
 
@@ -73,3 +74,4 @@ const HouseDetail = ({ house, onClick }) => {
 };
 
 export default HouseDetail;
+

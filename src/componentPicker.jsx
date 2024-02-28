@@ -29,7 +29,7 @@ const ComponentPicker = ({ currentNavLocation,
       />; 
 
     case navValues.housedetail:
-      return <HouseDetail />; //needs Props
+      return <HouseDetail />; 
     default:
       return (
         <h3>
