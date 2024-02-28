@@ -1,5 +1,5 @@
 import { useCallback, useState } from "react";
-import loadingStatus from "../helpers/loadingStatus";
+import loadingStatus from "../src/helpers/loadingStatus";
 
 const useGetRequest = (url) => {
   const [loadingState, setLoadingState] = useState(loadingStatus.isLoading);

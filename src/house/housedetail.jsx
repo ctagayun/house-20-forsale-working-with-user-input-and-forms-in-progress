@@ -8,6 +8,7 @@ import currencyFormatter from "../helpers/currencyFormatter";
 import defaultPhoto from "../images/defaultPhoto";
 import { navigationContext } from "/src/app";
 import navValues from "../helpers/navValues";
+import Bids from "./bids";
 
 const HouseDetail = ({ house, onClick }) => {
   console.log("House Detail fired")
@@ -27,7 +28,7 @@ const HouseDetail = ({ house, onClick }) => {
     <div>
       <div className="row">
         <div className="col-6">
-         <div className="row">
+          <div className="row">
           <img
             className="img-fluid"
             src={
@@ -35,7 +36,7 @@ const HouseDetail = ({ house, onClick }) => {
             }
             alt="HouseDetail picture"
           />
-        </div>
+          </div>
         </div>
         <div className="col-6">
         <div className="row mt-2">
@@ -52,10 +53,10 @@ const HouseDetail = ({ house, onClick }) => {
         <div className="row">
           <div className="col-12 mt-3">{housedetail.description}</div>
         </div>
-        </div>
+        <Bids house={house} />
+      </div>
 
-       <div className="row">
-       </div>
+
        <div className="row">
           <div className="col-1">
           <button className="btn btn-success btn-sm float-right"
@@ -64,7 +65,7 @@ const HouseDetail = ({ house, onClick }) => {
           </button>
          </div>  
        </div>
-    </div>
+     </div>
       
     </div>
     
