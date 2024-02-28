@@ -2,7 +2,11 @@ import { useEffect, useState } from "react";
 import useGetRequest from "./useGetRequest";
 
 const useBids = (houseId) => {
+
+  console.log("ObjectID in useBid.jsx hook = " + houseId);
+  
   const [bids, setBids] = useState([]);
+  
   const { get, loadingState } = useGetRequest(`/api/bids/${houseId}`);
 
   useEffect(() => {

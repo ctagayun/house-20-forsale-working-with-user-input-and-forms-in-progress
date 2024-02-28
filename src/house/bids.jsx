@@ -9,6 +9,7 @@ const Bids = ({ house }) => {
   const myHouseInBidsJSX = JSON.stringify(house);
   console.log("myHouseInBidsJSX = " + myHouseInBidsJSX);
 
+  //Fetch bids using useBids,js hooks
   const { bids, loadingState, addBid } = useBids(house.objectID);
 
   const emptyBid = {
@@ -20,6 +21,10 @@ const Bids = ({ house }) => {
   const [newBid, setNewBid] = useState(emptyBid);
 
   if (loadingState !== loadingStatus.loaded)
+    console.log("Loading Status in Bids.jsx = " +  loadingStatus.loaded);
+
+    console.log("Loading State in Bids.jsx = " +  loadingState);
+
     return <LoadingIndicator loadingState={loadingState} />;
 
   const onBidSubmitClick = () => {
