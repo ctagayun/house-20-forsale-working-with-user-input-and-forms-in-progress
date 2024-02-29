@@ -9,15 +9,19 @@ const Bids = ({ house }) => {
   const myHouseInBidsJSX = JSON.stringify(house);
   console.log("myHouseInBidsJSX = " + myHouseInBidsJSX);
 
-  //Fetch bids using useBids,js hooks
+  //Call useBids hook to fetch bids.
+  //AFTER USEBID RUNS, it returns "bids", addBid" and "loadingState".
+  //So in here Bids.jsx we destructure "bids", addBid" and "loadingState.
   const { bids, loadingState, addBid } = useBids(house.objectID);
 
+  //I am defining an emptyBid
   const emptyBid = {
-    houseId: house.objectID,
+    houseId: house.objectID, //this is id of the "house" prop
     bidder: "",
     amount: 0,
   };
 
+  //Next I create a state called "newBid" with initial value of "emptyBid"
   const [newBid, setNewBid] = useState(emptyBid);
 
   if (loadingState !== loadingStatus.loaded)
@@ -27,9 +31,13 @@ const Bids = ({ house }) => {
 
     return <LoadingIndicator loadingState={loadingState} />;
 
+  
   const onBidSubmitClick = () => {
-    addBid(newBid);
-    setNewBid(emptyBid);
+    addBid(newBid); //add the bid to the state
+    setNewBid(emptyBid); //after adding the bid, I am resetting the 
+                        //bid to an empty bid because I want to reset
+                        //the input form to the default bidder and 
+                        //amount values
   };
 
   return (
@@ -60,8 +68,9 @@ const Bids = ({ house }) => {
             id="bidder"
             className="h-100"
             type="text"
-            value={newBid.bidder}
+            value={newBid.bidder} //first input set to the property of newBid
             onChange={(e) => setNewBid({ ...newBid, bidder: e.target.value })}
+                            //onChange handler sets the bid in the newBid
             placeholder="Bidder"
           ></input>
         </div>
@@ -70,15 +79,16 @@ const Bids = ({ house }) => {
             id="amount"
             className="h-100"
             type="number"
-            value={newBid.amount}
+            value={newBid.amount} //second input is the amount so type is  number
             onChange={(e) =>
               setNewBid({ ...newBid, amount: parseInt(e.target.value) })
-            }
+                         //onChange handler sets the amount in the newBid
+            }            //except for the fact I converted the value to int
             placeholder="Amount"
           ></input>
         </div>
         <div className="col-2">
-          <button className="btn btn-primary" onClick={onBidSubmitClick}>
+          <button className="btn btn-primary" onClick={onBidSubmitClick}> 
             Add
           </button>
         </div>
