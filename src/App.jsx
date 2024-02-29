@@ -12,7 +12,11 @@ import ComponentPicker from "./componentPicker";
       By using it as initial state in React's useState Hook. The 
       returned values from the array are the current state (stories) 
       and the state updater function (setStories):
-    */
+
+      Review Section 6 - Side effects and Effect Hook 
+      https://app.pluralsight.com/ilx/video-courses/9a3771fa-626e-4708-8634-c49cc8616922/4b5d269c-f9d9-4c3e-9806-ce1374a69d83/38787284-b036-43d0-bacd-146796f59d2c
+  
+      */
 const welcome = {
     subject: 'List of ',
     title: 'Houses for Sale',
